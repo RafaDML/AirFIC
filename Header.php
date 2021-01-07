@@ -12,11 +12,11 @@
     margin:0;">
                         <input style=" margin-left: 200px; padding-right: 100px; border: 1px solid lightgray; border-radius: 999px; align-content: center; " type="text" placeholder="   Empieza tu búsqueda" />
                         <a href="#" className="searchiconheader"><img style=" position:absolute;
-    bottom:2px;
+    bottom:1px;
     left:453px;
     width:30px;
-    height:25px;
-    border-radius: 50px;" src="assets/img/searchicon.jpg"></a>
+    height:27px;
+    border-radius: 1000px;" src="assets/img/searchicon.jpg"></a>
                         
                     </div>
 
