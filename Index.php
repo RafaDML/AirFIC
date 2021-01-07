@@ -102,7 +102,7 @@
   <label class="custom-control-label" for="customCheck1">Aceptar términos y condiciones</label><br/>
 </div>
   
-         <div class="form-group row">
+         <div class="form-group row"> 
 
   
    
