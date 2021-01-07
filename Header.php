@@ -3,7 +3,7 @@
 
       <!-- <h1 class="logo mr-auto" ><a href="index.html" > <img className="header_icon" src="assets/img/main-logo.jpg"/></a></h1>-->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="Index.php" ><img style="  object-fit:contain;
+      <a href="index.php" ><img style="  object-fit:contain;
     height: 70px;
     margin-left: 1px;" src="assets/img/main-logo.jpg" alt="" class="img-fluid"></a>
 

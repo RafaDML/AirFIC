@@ -5,7 +5,7 @@
 </head>
 <body>
 	 <div className="BecomeHostLogo" >
-                <a href="Index.php"><img style=" margin-top: 20px;
+                <a href="index.php"><img style=" margin-top: 20px;
     object-fit:contain;
     height: 40px;
     margin-left: 20px;" className="header_icon_becomehost" src="assets/img/BecomeHostHomeLogo.png"></a>
