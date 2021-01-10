@@ -1,3 +1,31 @@
+ <?php
+session_start();
+
+    if(isset($_GET['cerrar_sesion'])){
+        session_unset();
+
+        session_destroy();
+    }
+
+    if(isset($_SESSION['rol'])){
+        switch($_SESSION['rol']){
+            case 1:
+                header('location:myaccount/profile.php');
+            break;
+
+            case 2:
+            header('location: rt.php');
+            break;
+
+            default:
+        }
+    }
+
+ ?>
+ 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,16 +33,12 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Airbnb</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+ 
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -28,19 +52,30 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <!-- =======================================================
-  * Template Name: Multi - v2.1.0
-  * Template URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ 
 	
 </head>
+<?php 
+session_start();
+  if (isset($_SESSION['error'])) {
+    $mensaje=$_SESSION['error'];
+    $style= 'text-align: center; font-size: 13px; margin-top: 20px; margin-bottom: 20px; color:red;';
+    unset($_SESSION['error']);
+  }else if(isset($_SESSION['rpt'])){
+    $mensaje=$_SESSION['rpt'];
+    $style= 'text-align: center; font-size: 13px; margin-top: 20px; margin-bottom: 20px; color:green;';
+    unset($_SESSION['rpt']);
+  }else {
+    $mensaje="";
+    $style= "";
+  }
+?>
 <body>
   <?php include 'Header.php'; ?>
+ 
 
    <div className='banner' class=""  style="
     position: relative;
@@ -83,32 +118,63 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="singup.php" method="POST">
-     <div class="form-group">
-      <label for="user">Usuario:</label>
-         <br/><input type="text" name="usuario" class="form-control">
-      </div>
-         <label for="password">Password:</label>
-         <br/><input type="password" name="password" class="form-control"><br/>
-         <label for="password">Nombre:</label>
-         <br/><input type="text" name="nombre" class="form-control"><br/>
-         <label for="example-date-input" class="">Fecha de nacimiento</label><br/>
-          <input class="form-control" type="date" value="2011-08-19" id="fechanac"><br/>
-          <label for="password">Correo:</label>
-         <br/><input type="email" name="correo" placeholder="@gmail.com" class="form-control"><br/>
+        <form action="Server/Registro_usuario_rafael.php" method="POST">
+     
+      
+           <div class="form-group">
+              <input style="margin-top: 5px" name="txtTelefono" id="txtTelefono" type="text" class="form-control" required placeholder="Número de teléfono"><br>
+              
+              <input style="margin-top: 5px" name="txtEmail" id="txtEmail" type="email" class="form-control" required placeholder="Email"><br>
+              <input style="margin-top: 5px" name="txtNombre" id="txtNombre" type="text" class="form-control" required placeholder="Nombre"><br>
+              <input style="margin-top: 5px" name="txtApellidoP" id="txtApellidoP" type="text" class="form-control" required placeholder="Apellido paterno"><br>
+              <input style="margin-top: 5px" name="txtApellidoM" id="txtApellidoM" type="text" class="form-control" placeholder="Apellido materno"><br>
 
-          <div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="customCheck1">
-  <label class="custom-control-label" for="customCheck1">Aceptar términos y condiciones</label><br/>
-</div>
-  
-         <div class="form-group row"> 
+              <div class="dropdown-divider"></div>
 
+              <label><h5 class="display-4" style="font-size: 15px;">Contraseña</h5></label>
+              <input style="margin-top: 5px" name="txtPassword" id="txtPassword"  type="password" class="form-control" required placeholder="Contraseña"><br>
+              <input style="margin-top: 5px" name="txtVpassword" id="txtVpassword" type="password" class="form-control" required placeholder="Confirmación de contraseña"><br>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="form-group">
+              <label><h5 class="display-4" style="font-size: 15px;">Datos de contacto:</h5></label>
+              <br>
+
+              <div class="row">
+
+
+              <label><h5 class="display-4 col-8" style="font-size: 15px;">Fecha de Nacimiento:</h5></label>
+
+              <input style="margin-top: -5px" name="dateFechaNac" id="dateFechaNac" type="date" class="form-control
+              form-control col-6" required>
+
+
+              </div>
+              
+              <input style="margin-top: 5px" name="txtDireccion" id="txtDireccion" type="text" class="form-control" required placeholder="Dirección">
+              <input style="margin-top: 5px" name="txtColonia" id="txtColonia" type="text" class="form-control" required placeholder="Colonia">
+              <div class="row" style="margin-top: 5px">
+                <input style="margin-left: 15px" name="txtCodPostal" id="txtCodPostal" type="text" class="form-control col-4" required placeholder="Código Postal">
+                <input style="margin-left: 34px" name="txtCiudad" id="txtCiudad" type="text" class="form-control col-6" required placeholder="Ciudad">
+              </div>
+              <br>
+             
+              <input style="margin-top: 5px" name="txtEstado" id="txtEstado" type="text" class="form-control" required placeholder="Estado"><br>
+              <div style="margin-top: 12px" class="form-check">
+                <input class="form-check-input" type="checkbox" id="aviso">
+                <label for="aviso"><h6 class="h6" style="font-size: 12.5px;">
+                  Acepto términos y condiciones
+                </h6></label>
+              </div>
+            </div>
+            <input type="hidden" name="tipoCuenta" value="1">
+
+        
   
-   
- 
-</div>
-        <input type="submit" value="Iniciar sesión" class="btn btn-block btn-danger login-btn" >
+         
+        <input type="submit" value="Registrarse" class="btn btn-block btn-danger login-btn" >
     </form>
       </div>
       
@@ -127,15 +193,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="#" method="POST">
-     <div class="form-group">
-      <label for="user">Usuario:</label>
-        <input type="text" name="username" class="form-control">
-      </div>
-         <label for="password">Password:</label>
-         <input type="password" name="password" class="form-control"><br/>
-        <input type="submit" value="Iniciar sesión" class="btn btn-block btn-danger login-btn" >
-    </form>
+        <form action="Server/login.php" id="loginForm" method="POST">
+            <div class="form-group">
+             <label for="user">Numero de telefono:</label>
+            <input type="text" name="txtCorreo" class="form-control">
+             </div>
+             <label for="password">Password:</label>
+             <input type="password" name="txtContraseña" class="form-control"><br/>
+             <input type="submit" value="Iniciar sesión" class="btn btn-block btn-danger login-btn" >
+         </form>
       </div>
       
     </div>

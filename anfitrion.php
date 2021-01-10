@@ -18,10 +18,11 @@
     margin-left: 70px;
     width: 400px;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;">Recibe huéspedes en tu espacio con Airbnb</h1>
             <a  ><button className="become_host_btn" style=" margin-left: 60px;
     margin-top: 20px;
-    background-color:#C70039;
+    background-color:#ff385c;
     padding-top: 7px;
     padding-left: 30px;
     padding-right: 30px;
