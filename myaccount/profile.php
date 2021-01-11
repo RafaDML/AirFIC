@@ -1,28 +1,14 @@
- <?php
+<?php
 session_start();
+ 
+if(!isset($_SESSION['Nombre'])){
+    header('Location: ../index.php');
+    exit;
+} else {
+    // Show users the page!
+}
+?>
 
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset();
-
-        session_destroy();
-    }
-
-    if(isset($_SESSION['rol'])){
-        switch($_SESSION['rol']){
-            case 1:
-                header('location:myaccount/profile.php');
-            break;
-
-            case 2:
-            header('location: rt.php');
-            break;
-
-            default:
-        }
-    }
-    
-
- ?>
 
 <!DOCTYPE html>
 <html>
@@ -93,6 +79,8 @@ session_start();
             </div>
     </div>
 
-
+<?php
+  include '../footer.php'; 
+?>
 </body>
 </html>

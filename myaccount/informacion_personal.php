@@ -75,6 +75,7 @@ session_start();
     $Codigo_postal=$_SESSION['Codigo_postal'];
     $Ciudad=$_SESSION['Ciudad'];
     $Estado=$_SESSION['Estado'];
+    $id=$_SESSION['id'];
     if(!isset($Correo)){
         header("location: Server/login.php");
     }
@@ -83,12 +84,12 @@ session_start();
 
 
 
-  <div class="container" style="margin-top: 100px;">
-    <label><h2 style="font-weight: bold;">Cuenta</h2></label></br>
+  <div class="container" style="margin-top: 100px; font-size: 22px;">
+    <label><h6 style="font-weight: bold;">Cuenta > Información Personal</h6></label></br>
     <label>
-      <h3 class="display-4" style="  font-size: 22px; font-weight: 400">
-        <span style="font-weight: bold;"><?= $Nombre?></span>
-      </h3>
+      <h4 class="display-4" style="  font-size: 30px; font-weight: 400">
+        <span style="font-weight: bold;">Información Personal</span>
+      </h4>
       </br>
     </label>
 
@@ -96,7 +97,7 @@ session_start();
 
 
 
-    <form action="Server/Registro_usuario_rafael.php" method="POST">
+    <form action="../Server/actualizarinfo.php" method="POST">
      
       
            
@@ -106,41 +107,41 @@ session_start();
                   <div class="col-sm-8">
 
                     <div class="form-group container">
-            <label><h5 class="display-4" style="font-size: 15px;">Teléfono:</h5></label>
-              <input style="margin-top: 5px" name="txtTelefono" id="txtTelefono" type="text" class="form-control col-7" value="<?=$Num_telefono?>"><br>
+            <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Teléfono:</h5></label>
+              <input style="margin-top: 5px" maxlength="10"  name="txtTelefono" id="txtTelefono" type="text" class="form-control col-7" value="<?=$Num_telefono?>" required=""><br>
 
-               <label><h5 class="display-4" style="font-size: 15px;">Correo:</h5></label>
-              <input style="margin-top: 5px" name="txtEmail" id="txtEmail" type="email" class="form-control col-7"  value="<?=$Correo?>"><br>
+               <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Correo:</h5></label>
+              <input style="margin-top: 5px" name="txtEmail" id="txtEmail" type="email" class="form-control col-7"  value="<?=$Correo?>"required=""><br>
 
-              <label><h5 class="display-4" style="font-size: 15px;">Nombre:</h5></label>
-              <input style="margin-top: 5px" name="txtNombre" id="txtNombre" type="text" class="form-control col-7" value="<?=$Nombre?>"><br>
+              <label><h5 class="display-4" style=" font-weight: bold; font-size: 15px;">Nombre:</h5></label>
+              <input style="margin-top: 5px" name="txtNombre" id="txtNombre" type="text" class="form-control col-7" value="<?=$Nombre?>" required=""><br>
 
-              <label><h5 class="display-4" style="font-size: 15px;">Apellido Paterno:</h5></label>
-              <input style="margin-top: 5px" name="txtApellidoP" id="txtApellidoP" type="text" class="form-control col-7" value="<?=$Ap_pat?>"><br>
+              <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Apellido Paterno:</h5></label>
+              <input style="margin-top: 5px" name="txtApellidoP" id="txtApellidoP" type="text" class="form-control col-7" value="<?=$Ap_pat?>" required=""><br>
 
-              <label><h5 class="display-4" style="font-size: 15px;">Apellido Materno:</h5></label>
-              <input style="margin-top: 5px" name="txtApellidoM" id="txtApellidoM" type="text" class="form-control col-7" value="<?=$Ap_mat?>"><br>
+              <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Apellido Materno:</h5></label>
+              <input style="margin-top: 5px" name="txtApellidoM" id="txtApellidoM" type="text" class="form-control col-7" value="<?=$Ap_mat?>" required=""><br>
 
-               <label><h5 class="display-4" style="font-size: 15px;">Fecha de nacimiento:</h5></label>
-              <input style="margin-top: 5px" name="dateFechaNac" id="dateFechaNac" type="date" class="form-control col-7" required value="<?=$Fecha_nacimiento?>"><br>
+               <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Fecha de nacimiento:</h5></label>
+              <input style="margin-top: 5px" name="dateFechaNac" id="dateFechaNac" type="date" class="form-control col-7" required value="<?=$Fecha_nacimiento?>" required=""><br>
 
-              <label><h5 class="display-4" style="font-size: 15px;">Dirección:</h5></label>
-              <input style="margin-top: 5px" name="txtDireccion" id="txtDireccion" type="text" class="form-control col-7" value="<?=$Direccion?>"><br>
+              <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Dirección:</h5></label>
+              <input style="margin-top: 5px" name="txtDireccion" id="txtDireccion" type="text" class="form-control col-7" value="<?=$Direccion?>" required=""><br>
 
-              <label><h5 class="display-4" style="font-size: 15px;">Colonia:</h5></label>
-              <input style="margin-top: 5px" name="txtColonia" id="txtColonia" type="text" class="form-control col-7" value="<?=$Colonia?>"><br>
+              <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Colonia:</h5></label>
+              <input style="margin-top: 5px" name="txtColonia" id="txtColonia" type="text" class="form-control col-7" value="<?=$Colonia?>" required=""><br>
               
 
-                <label><h5 class="display-4" style="font-size: 15px;">Codigo Postal:</h5></label>
-                <input style="margin-left: 5px" name="txtCodPostal" id="txtCodPostal" type="text" class="form-control col-7" value="<?=$Codigo_postal?>"><br>
+                <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Codigo Postal:</h5></label>
+                <input style="margin-left: 5px" name="txtCodPostal" id="txtCodPostal" type="text" class="form-control col-7" value="<?=$Codigo_postal?>" required=""><br>
 
-                <label><h5 class="display-4" style="font-size: 15px;">Ciudad:</h5></label>
-                <input style="margin-left: 5px" name="txtCiudad" id="txtCiudad" type="text" class="form-control col-7" value="<?=$Ciudad?>"><br>
+                <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Ciudad:</h5></label>
+                <input style="margin-left: 5px" name="txtCiudad" id="txtCiudad" type="text" class="form-control col-7" value="<?=$Ciudad?>" required=""><br>
              
 
               
-              <label><h5 class="display-4" style="font-size: 15px;">Estado:</h5></label>
-              <input style="margin-left: 5px" name="txtEstado" id="txtEstado" type="text" class="form-control col-7" required placeholder="" value="<?=$Estado?>"><br>
+              <label><h5 class="display-4" style="font-weight: bold; font-size: 15px;">Estado:</h5></label>
+              <input style="margin-left: 5px" name="txtEstado" id="txtEstado" type="text" class="form-control col-7" required placeholder="" value="<?=$Estado?>" required=""><br>
 
 
                     
@@ -167,7 +168,9 @@ session_start();
                     </div>
                     <br><br><br>
 
-                    <button type="button" class="btn btn-info" style="position: relative; width: 250px;">Editar datos</button>
+                    
+
+                     <input type="submit" value="Actualizar" style=" background-color: #2596be; color: white; position: relative; width: 250px;" class="btn btn-block  login-btn" >
                   </div>
                 </div>
 
@@ -204,7 +207,9 @@ session_start();
   
 
 
-
+<?php
+  include '../footer.php'; 
+?>
 
 </body>
 </html>

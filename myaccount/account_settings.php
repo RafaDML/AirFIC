@@ -79,7 +79,7 @@ session_start();
     <label>
       <h3 class="display-4" style="  font-size: 22px; font-weight: 400">
         <span style="font-weight: bold;"><?= $Nombre?></span>, 
-         <span><?= $Correo?></span>  <a style="color: #2596be" href="">- Ir a tu perfil</a>
+         <span><?= $Correo?></span>  <a style="color: #2596be" href="iraperfil.php">- Ir a tu perfil</a>
       </h3>
       </br>
     </label>
@@ -195,6 +195,10 @@ session_start();
 	</div>
 
 
+
+<?php
+  include '../footer.php'; 
+?>
 
 
 </body>

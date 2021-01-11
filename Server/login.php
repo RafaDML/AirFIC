@@ -25,6 +25,7 @@
 		$_SESSION['Codigo_postal']=$datos['Codigo_postal'];
 		$_SESSION['Ciudad']=$datos['Ciudad'];
 		$_SESSION['Estado']=$datos['Estado'];
+		$_SESSION['id']=$datos['id'];
 
 
 		$_SESSION['Rol']=$datos['Rol'];

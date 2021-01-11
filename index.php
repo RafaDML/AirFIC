@@ -1,28 +1,14 @@
- <?php
+<?php
 session_start();
-
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset();
-
-        session_destroy();
-    }
-
-    if(isset($_SESSION['rol'])){
-        switch($_SESSION['rol']){
-            case 1:
-                header('location:myaccount/profile.php');
-            break;
-
-            case 2:
-            header('location: rt.php');
-            break;
-
-            default:
-        }
-    }
-
- ?>
  
+if(!isset($_SESSION['Nombre'])){
+    
+    
+} else {
+    header('Location:./myaccount/profile.php');
+    exit;
+}
+?>
 
 
 
@@ -107,6 +93,48 @@ session_start();
     color: gray;
     font-weight: bold;" >Explora los alrededores</button>
 
+    <!--cards-->
+
+    <div class="row" style="margin-top: 150px; margin-left: 50px;">
+  <div class="col-sm-3">
+      <div class="card" style="width: 13rem;">
+        <img class="card-img-top" src="assets/img/iconcardnum1.jpg" style="" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Viaja por el mundo</p>
+        </div>
+      </div>
+
+
+
+
+
+  </div>
+  <div class="col-sm-3">
+      <div class="card" style="width: 13rem;">
+        <img class="card-img-top" src="assets/img/iconcardnum1.jpg" style="" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Viaja por el mundo</p>
+        </div>
+      </div>
+    
+  </div>
+
+  <div class="col-sm-3">
+      <div class="card" style="width: 13rem;">
+        <img class="card-img-top" src="assets/img/iconcardnum1.jpg" style="" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Viaja por el mundo</p>
+        </div>
+      </div>
+    
+  </div>
+
+
+
+</div>
+
+    
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -122,18 +150,18 @@ session_start();
      
       
            <div class="form-group">
-              <input style="margin-top: 5px" name="txtTelefono" id="txtTelefono" type="text" class="form-control" required placeholder="Número de teléfono"><br>
+              <input style="margin-top: 5px" name="txtTelefono" id="txtTelefono" type="text" class="form-control" required placeholder="Número de teléfono">
               
-              <input style="margin-top: 5px" name="txtEmail" id="txtEmail" type="email" class="form-control" required placeholder="Email"><br>
-              <input style="margin-top: 5px" name="txtNombre" id="txtNombre" type="text" class="form-control" required placeholder="Nombre"><br>
-              <input style="margin-top: 5px" name="txtApellidoP" id="txtApellidoP" type="text" class="form-control" required placeholder="Apellido paterno"><br>
-              <input style="margin-top: 5px" name="txtApellidoM" id="txtApellidoM" type="text" class="form-control" placeholder="Apellido materno"><br>
+              <input style="margin-top: 5px" name="txtEmail" id="txtEmail" type="email" class="form-control" required placeholder="Email">
+              <input style="margin-top: 5px" name="txtNombre" id="txtNombre" type="text" class="form-control" required placeholder="Nombre">
+              <input style="margin-top: 5px" name="txtApellidoP" id="txtApellidoP" type="text" class="form-control" required placeholder="Apellido paterno">
+              <input style="margin-top: 5px" name="txtApellidoM" id="txtApellidoM" type="text" class="form-control" placeholder="Apellido materno">
 
               <div class="dropdown-divider"></div>
 
               <label><h5 class="display-4" style="font-size: 15px;">Contraseña</h5></label>
-              <input style="margin-top: 5px" name="txtPassword" id="txtPassword"  type="password" class="form-control" required placeholder="Contraseña"><br>
-              <input style="margin-top: 5px" name="txtVpassword" id="txtVpassword" type="password" class="form-control" required placeholder="Confirmación de contraseña"><br>
+              <input style="margin-top: 5px" name="txtPassword" id="txtPassword"  type="password" class="form-control" required placeholder="Contraseña">
+              <input style="margin-top: 5px" name="txtVpassword" id="txtVpassword" type="password" class="form-control" required placeholder="Confirmación de contraseña">
             </div>
 
             <div class="dropdown-divider"></div>
@@ -175,6 +203,16 @@ session_start();
   
          
         <input type="submit" value="Registrarse" class="btn btn-block btn-danger login-btn" >
+          <br>
+         <label style="font-size: small;">¿Ya tienes una cuenta? </label>
+             <a style="font-weight: bold; 
+                      font-size: small; 
+                      padding-left: 5px; 
+                      color:#2596be;  
+
+                      "
+
+                      data-toggle="modal" data-target="#iniciarmodal"  data-dismiss="modal"href="">  Iniciar Sesión</a>
     </form>
       </div>
       
@@ -195,11 +233,14 @@ session_start();
       <div class="modal-body">
         <form action="Server/login.php" id="loginForm" method="POST">
             <div class="form-group">
-             <label for="user">Numero de telefono:</label>
-            <input type="text" name="txtCorreo" class="form-control">
+             
+            <input type="text" placeholder="Número telefónico" name="txtCorreo" class="form-control">
              </div>
-             <label for="password">Password:</label>
-             <input type="password" name="txtContraseña" class="form-control"><br/>
+             
+             <input type="password" name="txtContraseña" placeholder="Contraseña" class="form-control"><br/>
+            
+
+
              <input type="submit" value="Iniciar sesión" class="btn btn-block btn-danger login-btn" >
          </form>
       </div>
@@ -226,5 +267,8 @@ session_start();
 </div>
 
 
+<?php
+  include 'footer.php'; 
+?>
 </body>
 </html>
