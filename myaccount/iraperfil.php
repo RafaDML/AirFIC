@@ -68,7 +68,7 @@ if(!isset($_SESSION['Nombre'])){
 ?>   
 
 
-<div class="container">
+<div class="container" style="margin-top: 50px;">
 
                   <div class="row" style="margin-top: 100px;">
 
